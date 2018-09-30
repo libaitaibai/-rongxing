@@ -1,0 +1,116 @@
+﻿/* 基础 */
+*{-webkit-tap-highlight-color:rgba(255,255,255,0);-webkit-touch-callout:none;margin:0}
+::-webkit-scrollbar{width:4px;height:4px}
+::-webkit-scrollbar-track{-webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);border-radius:0;background:rgba(0,0,0,0.1)}
+::-webkit-scrollbar-thumb{border-radius:5px;-webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);background:rgba(0,0,0,0.2)}
+::-webkit-scrollbar-thumb:hover{border-radius:5px;-webkit-box-shadow:inset 0 0 5px rgba(0,0,0,0.2);background:rgba(0,0,0,0.4)}
+input,textarea{-webkit-user-select:text}
+/* 全局 */
+body{word-break:break-all;word-wrap:break-word;font-family:Microsoft YaHei;background:#FFF}
+a{color:#666}
+.dn{display:none}
+.db{display:block}
+.ewm{display:none}
+.ewm-bg{position:fixed;z-index:9999;top:0;background:#000;opacity:.8;width:100%;height:100%}
+.ewm-box{position:fixed;z-index:9999;top:50%;left:50%;margin-top:-100px;margin-left:-100px;width:200px}
+.ewm-box img{width:200px;height:200px;border:5px solid #FFF}
+.black{display:none;position:fixed;z-index:9997;border-radius:50%;bottom:120px;right:10px;color:#FFF;background:#2175B1;opacity:.8;width:40px;height:40px;line-height:40px;text-align:center}
+.load{position:fixed;top:0;z-index:9999;width:100%;height:100%;background:#2175B1;color:#FFF}
+.load span{display:block;position:absolute;top:50%;left:50%;margin-left:-25px;margin-top:-50px}
+.load span p{margin-top:10px}
+.clear{clear:both}
+section{margin:80px 0 70px 0}
+.m-news a{color:#2276B2}
+
+/* 头部 or 底部 */
+header{position:fixed;top:0;z-index:9997;width:100%;background:#FFF;border-bottom: 2px solid #2276b2}
+footer{position:fixed;bottom:0;z-index:9997;width:100%;background:#2175B1}
+footer ul li{display:inline-block;float:left;width:160px;padding:8px 0;text-align:center;border-left:1px solid #1F6AA0;border-right:1px solid #2B87C8}
+footer ul li:first-child{border-left:0}
+footer ul li:last-child{border-right:0}
+footer a{color:#FFF}
+
+/* 导航 */
+nav{background:#2175B1;overflow:auto;position:fixed;top:0;right:-230px;opacity:0;z-index:9998;width:230px;height:100%;color:#FFF;text-indent:15px;padding-top:50px}
+nav ul li{z-index:9998;height:46px;line-height:46px;margin:5px 15px;background:#2175B1;text-align:center}
+nav ul li i{position:relative;top:2px;}
+nav ul li a{display:block;color:#FFF}
+nav ul li a.active{background:#FC0}
+.navbg{display:none;position:fixed;top:0;width:100%;height:100%;z-index:9998;background:#000;opacity:.5}
+.close{position:absolute;top:0;right:0;padding:15px 15px 0 15px;}
+
+/* 幻灯 */
+figure{max-width:640px;margin:0 auto}
+.slideBox{position:relative;overflow:hidden}
+.slideBox .hd{position:absolute;bottom:5px;right:5px;z-index:1}
+.slideBox .hd li{display:inline-block;width:8px;height:8px;border-radius:50%;background:#FFF;text-indent:-9999px;overflow:hidden;margin:0 2px}
+.slideBox .hd li.on{background:#FC0}
+
+/* 分页 */
+.pages{text-align:center;margin-bottom:10%}
+.pages a{padding:5px 10px;margin:0 3px;background:#EEE}
+.pages span{padding:5px 10px;margin:0 3px;background:#2175B1;color:#FFF}
+
+/* 内页 */
+.page-title{padding:10px;background:#2175B1;color:#FFF}
+.page-class{float:right;color:#FFF}
+.page-nav{display:none;background:#1F6AA0}
+.page-nav ul li{text-align:center;margin-top:-1px;border-top:1px solid #195681}
+.page-nav ul li:first-child{margin-top:0;border-top:0}
+.page-nav ul li a{padding:10px;display:block;color:#FFF}
+.page-nav ul li a.active{background:#FC0}
+.page-nav ul li ul{border-top:1px solid #195681}
+.page-nav ul li ul li{background:#195681}
+.page-content{margin:15px 0}
+
+/* 加载 */
+.page-more{text-align:center}
+
+/* 内容 */
+.show-title{text-align:center;border-bottom:1px solid #EEE;padding-bottom:10px;margin-bottom:10px}
+.show-content{border-bottom:1px solid #EEE;padding-bottom:10px}
+
+/* 组图 */
+.pic-list{margin-bottom:10px}
+.pic-list img{width:100%}
+
+/* 上下分页 */
+.show-pages{margin-top:25px}
+.show-pages a{padding:15px;border-radius:5px;background:#2175B1;color:#FFF}
+.show-pages .a-bgn{background:#CCC}
+
+/* 评论 */
+.form_comment{position:fixed;z-index:9998;bottom:0;width:100%;height:85px;background:#F5F5F7;padding:18px 0;border-top:1px solid #C4C4C6}
+.form_comment div{position:relative;width:95%;margin:0 auto}
+.form_comment input{width:100%;border:1px solid #C4C4C6;border-radius:5px;padding:15px 25% 15px 10px;-webkit-appearance:none}
+.form_comment button{color:#F5F5F7;position:absolute;top:0;right:0;border:1px solid #7F8389;background:#7F8389;border-radius:0 5px 5px 0;padding:15px;-webkit-appearance:none}
+
+/* 评论列表 */
+.comment{padding-top:30px}
+.comment li{float:left;width:100%}
+.comment li .time{display:block;margin:15px 0;text-align:center}
+.comment li .time b{font-weight:400;padding:5px 10px;border-radius:5px;background:#CECECE;color:#FFF}
+.comment li .clist{float:left}
+.comment li .clist .img{float:left;margin-right:-60px}
+.comment li .clist .txt{position:relative;display:inline;border-radius:5px;float:left;background:#FFF;border:1px solid #D1D1D1;padding:15px;margin-left:60px}
+.comment li .clist .txt i{font-style:normal;font-family:normal;position:absolute;font-size:16px;left:-8px;top:11px;color:#D1D1D1}
+.comment li .clist .txt .arrow{left:-7px;color:#FFF}
+.comment li .list_admin{float:right}
+.comment li .list_admin .txt{position:relative;display:inline;border-radius:5px;float:left;background:#A0E75A;border:1px solid #7CD052;padding:15px;margin-right:60px}
+.comment li .list_admin .img{float:right;margin-left:-60px}
+.comment li .list_admin .txt i{font-style:normal;font-family:normal;position:absolute;font-size:16px;right:-9px;top:11px;color:#7CD052}
+.comment li .list_admin .txt .arrow{right:-8px;color:#A0E75A}
+.comment li .list img,.comment li .list_admin img{border:1px solid #D1D1D1}
+.comment-load{padding-top:5%;display:block;text-align:center}
+.comment-load a{background:none;color:#606060}
+
+/* 响应 */
+@media screen and (max-width:639px){footer ul li{width:25%}
+section{margin:12% 0 18% 0}
+nav{width:180px}
+nav ul li{height:45px;line-height:45px;font-size:14px}
+}
+@media screen and (max-width:479px){.form_comment{height:66px;padding:13px 0}
+.form_comment input{padding:10px 25% 10px 10px}
+.form_comment button{padding:10px 15px}
+}
