@@ -12,3 +12,4 @@ temp/
 .env
 .DS_Store
 public/devtool/
+./config/

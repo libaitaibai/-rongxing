@@ -19,6 +19,12 @@ use Swoft\Contract\Arrayable;
 use Swoft\Http\Server\Exception\BadRequestException;
 use Swoft\Http\Message\Server\Response;
 
+use App\Models\Entity\Project;
+use App\Models\Entity\User;
+use App\Models\Entity\Projectdetail;
+use Swoft\Db\Db;
+use Swoft\Db\Query;
+
 /**
  * 荣兴制冷网页版主页面
  *
@@ -28,8 +34,8 @@ class IndexController
 {
     /**
      * 主页面
-     * @RequestMapping(route="index")
-     * @View(template="rongxing/index")
+     * @RequestMapping(route="index[.html]")
+     * @View(template="rongxing/index/index", layout="layouts/rongxing.php")
      */
     public function index()
     {
@@ -37,30 +43,30 @@ class IndexController
     }
 
     /**
-     * 定义一个route,支持get和post方式，处理uri=/demo2/index.
-     *
-     * @RequestMapping(route="index1", method={RequestMethod::GET, RequestMethod::POST})
-     *
-     * @param Request $request
-     *
-     * @return array
+     * 关于我们
+     * @RequestMapping(route="about[.html]")
+     * @View(template="rongxing/index/about", layout="layouts/rongxing.php")
      */
-    public function index1(Request $request)
+    public function about()
     {
-        // 获取所有GET参数
-        $get = $request->query();
-        // 获取name参数默认值defaultName
-        $getName = $request->query('name', 'defaultName');
-        // 获取所有POST参数
-        $post = $request->post();
-        // 获取name参数默认值defaultName
-        $postName = $request->post('name', 'defaultName');
-        // 获取所有参，包括GET或POST
-        $inputs = $request->input();
-        // 获取name参数默认值defaultName
-        $inputName = $request->input('name', 'defaultName');
-
-        return compact('get', 'getName', 'post', 'postName', 'inputs', 'inputName');
+        return [];
     }
+
+    /**
+     * 产品展示页面
+     * @RequestMapping(route="product[.html]")
+     * @View(template="rongxing/product/productList", layout="layouts/rongxing.php")
+     */
+    public function product()
+    {
+        $Project = new Project();
+//        $result = Projectdetail::findAll(['status','>',0])->getResult();
+//        $result = Projectdetail::findById(1)->getResult();
+        $result = Db::query('select * from project where status>0 order by projectid desc limit 0,6')->getResult();
+//        $result = Db::query('select * from project where projectid=1')->getResult();
+        var_dump($result);
+    }
+
+
 
 }
