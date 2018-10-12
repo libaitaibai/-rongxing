@@ -26,6 +26,9 @@ use Swoft\Db\Db;
 use Swoft\Db\Query;
 use App\Services\PageService;
 
+
+use App\Models\Data\ProjectData;
+
 /**
  * 荣兴制冷网页版主页面
  *
@@ -33,9 +36,7 @@ use App\Services\PageService;
  */
 class IndexController
 {
-    //分页显示数据
-    private $size = 6;
-
+    public $size = 6;
     /**
      * 主页面
      * @RequestMapping(route="index[.html]")
@@ -77,10 +78,13 @@ class IndexController
     {
         $page  =  $request->input('p', 1);
         $start = $this->getPage($page);
+
+        $Project = ProjectData::getInstance();
+        $return = $Project->getDetail($type = 2, $start);
         //查询产品信息
-        $data = Db::query("select * from project where status>0 and type=2 order by projectid desc limit {$start},{$this->size}")->getResult();
+        $data = $return['data'];
         //查询信息总数
-        $count = Db::query("select count(*) as count from project where status>0 and type=2")->getResult()[0]['count'];
+        $count = $return['count'];
 
         //处理照片信息
         $data = array_map(function($val){
@@ -103,10 +107,13 @@ class IndexController
     {
         $page  =  $request->input('p', 1);
         $start = $this->getPage($page);
-        //查询产品信息
-        $data = Db::query("select * from project where status>0 and type=1 order by projectid desc limit {$start},{$this->size}")->getResult();
-        //查询信息总数
-        $count = Db::query("select count(*) as count from project where status>0 and type=1")->getResult()[0]['count'];
+
+        $Project = ProjectData::getInstance();
+        $return = $Project->getDetail($type = 1, $start);
+        //查询工程信息
+        $data = $return['data'];
+        //查询工程信息总数
+        $count = $return['count'];
 
         //处理照片信息
         $data = array_map(function($val){
