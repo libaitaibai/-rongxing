@@ -18,7 +18,7 @@
     <link href="/rongxing/css/style.css" rel="stylesheet">
     <link href="/rongxing/css/font-awesome.min.css" rel="stylesheet">
     <script src="/rongxing/common/js/TouchSlide.1.1.js"></script>
-    <title></title>
+    <title>荣兴制冷经营设备有限公司</title>
     <meta name="Keywords" content="" />
     <meta name="Description" content="" />
 </head>
@@ -31,7 +31,7 @@
     <?php $this->include('layouts/rongxing/footer') ?>
 
 <aside>
-    <div class="load"><span><i class="fa fa-refresh fa-spin fa-5x"></i><p>Loading...</p></span></div>
+    <div class="load"><span><i class="fa fa-refresh fa-spin fa-5x"></i><p>加载中...</p></span></div>
     <div class="navbg"></div>
     <div class="ewm">
         <div class="ewm-bg"></div>
@@ -44,19 +44,19 @@
 
             <li><a  href="about.html">关于我们<i class="fa fa-chevron-right"></i></a></li>
 
-            <li><a  href="ProductList.html">产品中心<i class="fa fa-chevron-right"></i></a></li>
+            <li><a  href="product.html">产品中心<i class="fa fa-chevron-right"></i></a></li>
 
-            <li><a  href="NewsList.html">新闻资讯<i class="fa fa-chevron-right"></i></a></li>
+            <li><a  href="newsList.html">新闻资讯<i class="fa fa-chevron-right"></i></a></li>
 
-            <li><a  href="NewsList.html">卫浴常识<i class="fa fa-chevron-right"></i></a></li>
+            <li><a  href="newsList.html">卫浴常识<i class="fa fa-chevron-right"></i></a></li>
 
-            <li><a  href="ProductList.html">安装案例<i class="fa fa-chevron-right"></i></a></li>
+            <li><a  href="product.html">安装案例<i class="fa fa-chevron-right"></i></a></li>
 
-            <li><a  href="Contact.html">售后服务<i class="fa fa-chevron-right"></i></a></li>
+            <li><a  href="contact.html">售后服务<i class="fa fa-chevron-right"></i></a></li>
 
             <li><a  href="zp.html">人才招聘<i class="fa fa-chevron-right"></i></a></li>
 
-            <li><a  href="Contact.html">联系我们<i class="fa fa-chevron-right"></i></a></li>
+            <li><a  href="contact.html">联系我们<i class="fa fa-chevron-right"></i></a></li>
 
         </ul>
     </nav>

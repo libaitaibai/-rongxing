@@ -18,12 +18,12 @@
                 </div>
             </figure>
             <ul class="inavgrp all clear-fix">
-                <li class="inavgrp-son"><a href="Contact.html">荣誉资质</a></li>
-                <li class="inavgrp-son"><a href="ProductList.html">客户案例</a></li>
-                <li class="inavgrp-son"><a href="ProductList.html">产品展示</a></li>
-                <li class="inavgrp-son"><a href="NewsList.html">新闻资讯</a></li>
+                <li class="inavgrp-son"><a href="contact.html">荣誉资质</a></li>
+                <li class="inavgrp-son"><a href="product.html">客户案例</a></li>
+                <li class="inavgrp-son"><a href="product.html">产品展示</a></li>
+                <li class="inavgrp-son"><a href="newsList.html">新闻资讯</a></li>
                 <li class="inavgrp-son"><a href="about.html">关于我们</a></li>
-                <li class="inavgrp-son"><a href="Contact.html">联系我们</a></li>
+                <li class="inavgrp-son"><a href="contact.html">联系我们</a></li>
             </ul>
             <div class="itl all">
                 <div class="itl-more fr"><a href="products/index.html">更多》</a></div>
@@ -78,7 +78,7 @@
 
             </ul>
             <div class="itl all">
-                <div class="itl-more fr"><a href="gsjs/index.html">更多>></a></div>
+                <div class="itl-more fr"><a href="about.html">更多>></a></div>
                 <div class="itl-tl">关于我们<span class="itl-tl-en">  about us</span></div>
             </div>
             <div class="iabout">荣兴制冷设备经营有限公司 :<br />

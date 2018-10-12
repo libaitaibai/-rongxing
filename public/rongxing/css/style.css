@@ -21,6 +21,7 @@ a{color:#666}
 .clear{clear:both}
 section{margin:80px 0 70px 0}
 .m-news a{color:#2276B2}
+.footerStyle{bottom:0;z-index:9997;width:100%;background:#2175B1;height: 16px;}
 
 /* 头部 or 底部 */
 header{position:fixed;top:0;z-index:9997;width:100%;background:#FFF;border-bottom: 2px solid #2276b2}
@@ -106,7 +107,7 @@ figure{max-width:640px;margin:0 auto}
 
 /* 响应 */
 @media screen and (max-width:639px){footer ul li{width:25%}
-section{margin:12% 0 18% 0}
+section{margin:12% 0 0 0}
 nav{width:180px}
 nav ul li{height:45px;line-height:45px;font-size:14px}
 }

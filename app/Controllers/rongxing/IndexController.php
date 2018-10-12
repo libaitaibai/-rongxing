@@ -24,6 +24,7 @@ use App\Models\Entity\User;
 use App\Models\Entity\Projectdetail;
 use Swoft\Db\Db;
 use Swoft\Db\Query;
+use App\Services\PageService;
 
 /**
  * 荣兴制冷网页版主页面
@@ -32,6 +33,9 @@ use Swoft\Db\Query;
  */
 class IndexController
 {
+    //分页显示数据
+    private $size = 6;
+
     /**
      * 主页面
      * @RequestMapping(route="index[.html]")
@@ -53,20 +57,43 @@ class IndexController
     }
 
     /**
+     * 联系我们
+     * @RequestMapping(route="contact[.html]")
+     * @View(template="rongxing/index/contact", layout="layouts/rongxing.php")
+     */
+    public function contact()
+    {
+        return [];
+    }
+
+
+
+    /**
      * 产品展示页面
      * @RequestMapping(route="product[.html]")
      * @View(template="rongxing/product/productList", layout="layouts/rongxing.php")
      */
-    public function product()
+    public function product(Request $request)
     {
-        $Project = new Project();
-//        $result = Projectdetail::findAll(['status','>',0])->getResult();
-//        $result = Projectdetail::findById(1)->getResult();
-        $result = Db::query('select * from project where status>0 order by projectid desc limit 0,6')->getResult();
-//        $result = Db::query('select * from project where projectid=1')->getResult();
-        var_dump($result);
+        $page  =  $request->input('p', 1);
+        $start = $this->getPage($page);
+        $data = Db::query("select * from project where status>0 and type=2 order by projectid desc limit {$start},{$this->size}")->getResult();
+        $count = Db::query("select count(*) as count from project where status>0 and type=2")->getResult()[0]['count'];
+        var_dump($data,$count,$this->size);
+        $page = new PageService($count,$this->size);
+        $page = $page->show('product');
+        return compact('count', 'data','page');
+
     }
 
 
+    /**
+     * 获得分页数据
+     */
+    private function getPage($page)
+    {
+        $start = ($page-1)*($this->size);
+        return $start;
+    }
 
 }
