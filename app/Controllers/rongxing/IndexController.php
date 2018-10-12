@@ -77,15 +77,48 @@ class IndexController
     {
         $page  =  $request->input('p', 1);
         $start = $this->getPage($page);
+        //查询产品信息
         $data = Db::query("select * from project where status>0 and type=2 order by projectid desc limit {$start},{$this->size}")->getResult();
+        //查询信息总数
         $count = Db::query("select count(*) as count from project where status>0 and type=2")->getResult()[0]['count'];
-        var_dump($data,$count,$this->size);
-        $page = new PageService($count,$this->size);
+
+        //处理照片信息
+        $data = array_map(function($val){
+            preg_match_all('/<img.*?src="(.*?)".*?>/is',$val['thumbnail'],$array);
+            return array_merge($val,['showImage'=>$array[1][0]]);
+        },$data);
+
+        $page = new PageService($count,$this->size,$request->input());
         $page = $page->show('product');
-        return compact('count', 'data','page');
+        return compact( 'data','page');
 
     }
 
+    /**
+     * 工程项目页面
+     * @RequestMapping(route="projects[.html]")
+     * @View(template="rongxing/product/projectsList", layout="layouts/rongxing.php")
+     */
+    public function projects(Request $request)
+    {
+        $page  =  $request->input('p', 1);
+        $start = $this->getPage($page);
+        //查询产品信息
+        $data = Db::query("select * from project where status>0 and type=1 order by projectid desc limit {$start},{$this->size}")->getResult();
+        //查询信息总数
+        $count = Db::query("select count(*) as count from project where status>0 and type=1")->getResult()[0]['count'];
+
+        //处理照片信息
+        $data = array_map(function($val){
+            preg_match_all('/<img.*?src="(.*?)".*?>/is',$val['thumbnail'],$array);
+            return array_merge($val,['showImage'=>$array[1][0]]);
+        },$data);
+
+        $page = new PageService($count,$this->size,$request->input());
+        $page = $page->show('/rongxing/rongxing/projects');
+        return compact( 'data','page');
+
+    }
 
     /**
      * 获得分页数据
