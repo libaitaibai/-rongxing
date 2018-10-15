@@ -8,4 +8,6 @@
 <!--        </ul>-->
 <!--    </div>-->
 <!--</footer>-->
-<div class='footerStyle'></div>
+<div class='footerStyle'>
+    荣兴制冷经营有限公司
+</div>

@@ -40,9 +40,9 @@
     <nav>
         <span class="close"><i class="fa fa-times fa-lg"></i></span>
         <ul class="nav">
-            <li><a class="active" href="index.html">网站首页<i class="fa fa-chevron-right"></i></a></li>
+            <li><a class="active" href="/rongxing/rongxing/index.html">网站首页<i class="fa fa-chevron-right"></i></a></li>
 
-            <li><a  href="about.html">关于我们<i class="fa fa-chevron-right"></i></a></li>
+            <li><a  href="/rongxing/rongxing/about.html">关于我们<i class="fa fa-chevron-right"></i></a></li>
 
             <li><a  href="product.html">产品中心<i class="fa fa-chevron-right"></i></a></li>
 
