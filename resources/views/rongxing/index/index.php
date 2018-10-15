@@ -26,42 +26,37 @@
                 <li class="inavgrp-son"><a href="contact.html">联系我们</a></li>
             </ul>
             <div class="itl all">
-                <div class="itl-more fr"><a href="products/index.html">更多》</a></div>
+                <div class="itl-more fr"><a href="products/index.html">更多>></a></div>
                 <div class="itl-tl">产品展示<span>  products</span></div>
             </div>
             <div class="ipro clear-fix">
-
-                <div class="metro-b">
-                    <a href="ProductView.html">
-                        <span class="pic"><img width="100%" src="/rongxing/upfile/201605/2016523114434573.jpg" alt="汽车新概念"/></span>
-                        <span class="text">汽车新概念</span>
-                    </a>
-                </div>
-
-                <div class="metro-b">
-                    <a href="ProductView.html">
-                        <span class="pic"><img width="100%" src="/rongxing/upfile/201605/2016523114445693.jpg" alt="跑车"/></span>
-                        <span class="text">跑车</span>
-                    </a>
-                </div>
-
-                <div class="metro-b">
-                    <a href="ProductView.html">
-                        <span class="pic"><img width="100%" src="/rongxing/upfile/201605/2016523114459675.jpg" alt="2014新概念汽车"/></span>
-                        <span class="text">2014新概念汽车</span>
-                    </a>
-                </div>
-
-                <div class="metro-b">
-                    <a href="ProductView.html">
-                        <span class="pic"><img width="100%" src="/rongxing/upfile/201605/2016523114511460.jpg" alt="大众概念汽车"/></span>
-                        <span class="text">大众概念汽车</span>
-                    </a>
-                </div>
-
+                <?php foreach ($product as $detail): ?>
+                    <div class="metro-b">
+                        <a href="ProductView.html">
+                            <span class="pic"><img width="100%" src="https://www.rongxingzhileng.cn<?= $detail['showImage']?>"   alt="<?= $detail['title']?>"/></span>
+                            <span class="text"><?= $detail['title']?></span>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
             </div>
+
+            <div class="itl all">
+                <div class="itl-more fr"><a href="products/index.html">更多>></a></div>
+                <div class="itl-tl">项目工程<span>  Projects</span></div>
+            </div>
+            <div class="ipro clear-fix">
+                <?php foreach ($projects as $detail): ?>
+                    <div class="metro-b">
+                        <a href="ProductView.html">
+                            <span class="pic"><img width="100%" src="https://www.rongxingzhileng.cn<?= $detail['showImage']?>"   alt="<?= $detail['title']?>"/></span>
+                            <span class="text"><?= $detail['title']?></span>
+                        </a>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+
             <div class="itl-inews">
-                <div class="itl-more fr"><a href="NewsList.html">更多》</a></div>
+                <div class="itl-more fr"><a href="NewsList.html">更多>></a></div>
                 <div class="itl-tl">最新活动<span>  news</span></div>
             </div>
             <ul class="inews">
@@ -89,3 +84,8 @@
         </div>
     </div>
 </section>
+<style>
+    .inavgrp-son a{
+        font:1.2em/2 "Microsoft Yahei";
+    }
+</style>

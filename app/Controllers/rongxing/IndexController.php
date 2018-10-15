@@ -18,15 +18,7 @@ use Swoft\View\Bean\Annotation\View;
 use Swoft\Contract\Arrayable;
 use Swoft\Http\Server\Exception\BadRequestException;
 use Swoft\Http\Message\Server\Response;
-
-use App\Models\Entity\Project;
-use App\Models\Entity\User;
-use App\Models\Entity\Projectdetail;
-use Swoft\Db\Db;
-use Swoft\Db\Query;
 use App\Services\PageService;
-
-
 use App\Models\Data\ProjectData;
 
 /**
@@ -44,7 +36,11 @@ class IndexController
      */
     public function index()
     {
-        return [];
+
+        $projects = $this->changeData($start = 0, $type = 1, $have=false)['data'];
+        $product = $this->changeData($start = 0, $type = 2, $have=false)['data'];
+
+        return compact( 'projects','product');
     }
 
     /**
@@ -79,18 +75,11 @@ class IndexController
         $page  =  $request->input('p', 1);
         $start = $this->getPage($page);
 
-        $Project = ProjectData::getInstance();
-        $return = $Project->getDetail($type = 2, $start);
-        //查询产品信息
+        $return = $this->changeData($start,$type = 2);
+        //查询工程信息
         $data = $return['data'];
-        //查询信息总数
+        //查询工程信息总数
         $count = $return['count'];
-
-        //处理照片信息
-        $data = array_map(function($val){
-            preg_match_all('/<img.*?src="(.*?)".*?>/is',$val['thumbnail'],$array);
-            return array_merge($val,['showImage'=>$array[1][0]]);
-        },$data);
 
         $page = new PageService($count,$this->size,$request->input());
         $page = $page->show('product');
@@ -108,18 +97,11 @@ class IndexController
         $page  =  $request->input('p', 1);
         $start = $this->getPage($page);
 
-        $Project = ProjectData::getInstance();
-        $return = $Project->getDetail($type = 1, $start);
+        $return = $this->changeData($start,$type = 1);
         //查询工程信息
         $data = $return['data'];
         //查询工程信息总数
         $count = $return['count'];
-
-        //处理照片信息
-        $data = array_map(function($val){
-            preg_match_all('/<img.*?src="(.*?)".*?>/is',$val['thumbnail'],$array);
-            return array_merge($val,['showImage'=>$array[1][0]]);
-        },$data);
 
         $page = new PageService($count,$this->size,$request->input());
         $page = $page->show('/rongxing/rongxing/projects');
@@ -134,6 +116,27 @@ class IndexController
     {
         $start = ($page-1)*($this->size);
         return $start;
+    }
+
+    /**
+     * 改变展示页面的值
+     */
+    private function changeData($start, $type, $have=true)
+    {
+        $Project = ProjectData::getInstance();
+        $return = $Project->getDetail($type, $start,$this->size,$have);
+        //查询工程信息
+        $data = $return['data'];
+        //查询工程信息总数
+        $count = $return['count'];
+
+        //处理照片信息
+        $data = array_map(function($val){
+            preg_match_all('/<img.*?src="(.*?)".*?>/is',$val['thumbnail'],$array);
+            return array_merge($val,['showImage'=>$array[1][0]]);
+        },$data);
+
+        return ['data' => $data,'count' => $count];
     }
 
 }

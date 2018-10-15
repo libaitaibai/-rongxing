@@ -8,7 +8,7 @@
                     <div class="item-loop prolist clear-fix">
 
                         <?php foreach ($data as $detail): ?>
-                            <div class="loop metro-b"><a href="../hssy/63.html"><span class="pic"><img src="https://www.rongxingzhileng.cn<?= $detail['showImage']?>"                      width="100%"></span><span class="text"><?= $detail['title']?></span></a></div>
+                            <div class="loop metro-b"><a href="../hssy/63.html"><span class="pic"><img src="https://www.rongxingzhileng.cn<?= $detail['showImage']?>" width="100%"></span><span class="text"><?= $detail['title']?></span></a></div>
                         <?php endforeach; ?>
 
 <!--                        <div class="loop metro-b"><a href="../hssy/63.html"><span class="pic"><img src="https://www.rongxingzhileng.cn/Upload/image/20180624/20180624162511_10130.jpg" width="100%"></span><span class="text">摄影照片</span></a></div>-->
